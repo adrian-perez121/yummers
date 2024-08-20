@@ -48,12 +48,19 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
   gem 'rspec-rails', '= 3.5.0.beta3'
+  gem 'rspec', '= 3.5.0.beta3'
+  gem 'rspec-core', '= 3.5.0.beta3'
+  gem 'rspec-expectations', '= 3.5.0.beta3'
+  gem 'rspec-mocks', '= 3.5.0.beta3'
+  gem 'rspec-support', '= 3.5.0.beta3'
+
+  gem 'guard-rspec', '~> 4.7'
+  gem 'guard'
 end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
-  gem 'guard'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
