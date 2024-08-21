@@ -51,14 +51,14 @@ gem 'rubocop-rspec', require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
-  gem 'rspec-rails', '= 3.5.0.beta3'
-  gem 'rspec', '= 3.5.0.beta3'
-  gem 'rspec-core', '= 3.5.0.beta3'
-  gem 'rspec-expectations', '= 3.5.0.beta3'
-  gem 'rspec-mocks', '= 3.5.0.beta3'
-  gem 'rspec-support', '= 3.5.0.beta3'
+  gem 'rspec-rails', '= 6.1.4'
+  gem 'rspec', '= 3.13'
+  gem 'rspec-core', '= 3.13'
+  gem 'rspec-expectations', '= 3.13.2'
+  gem 'rspec-mocks', '= 3.13.1'
+  gem 'rspec-support', '= 3.13.1'
 
-  gem 'guard-rspec', '~> 4.7'
+  gem 'guard-rspec', '~> 4.7.3'
   gem 'guard'
 end
 
