@@ -31,6 +31,21 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
+  <div data-controller="photo-preview">
+    <div class="field"
+    <%= f.label :profile_photo, 'Add in your profile photo!' %> <br>
+    <%= f.file_field :profile_photo,
+                     direct_upload: true,
+                     accept: "image/jpeg,image/png,image/jpg",
+                     'data-photo-preview-target' => "imageField",
+                     'data-action' => 'input->photo-preview#preview' %>
+    </div>
+
+    <div>
+      <%= image_tag('default_profile.jpg', class: "profile-photo", 'data-photo-preview-target' => 'imagePreview') %>
+    </div>
+  </div>
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
