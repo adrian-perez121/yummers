@@ -50,17 +50,17 @@
 
     <div class="actions">
       <%= f.submit "Sign up" %>
+    <% end %>
 
       <%= form_for "Login With Google",
                    url: user_google_oauth2_omniauth_authorize_path,
                    method: :post,
                    data: { turbo: false },
                    class: "google-login" do |f| %>
-        <% f.submit "Login With Google", type: 'image', src: image_path('google_login') %>
+        <% f.submit "Login With Google", type: 'image', src: image_path('google_sign_up') %>
       <% end %>
     </div>
     </div>
-  <% end %>
   <div class="sign-in-link">
     Already have an account? <%= link_to "Sign In", new_user_session_path %>
   </div>
