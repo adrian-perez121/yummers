@@ -1,62 +1,68 @@
-<h2>Sign up</h2>
+<div class="sign-up-content">
+  <h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :first_name %> <br>
-    <%= f.text_field :first_name %>
-  </div>
+    <div class="sign-up-grid">
+      <div class="field">
+        <%= f.label :first_name %> <br>
+        <%= f.text_field :first_name %>
+      </div>
 
-  <div class="field">
-    <%= f.label :last_name %> <br>
-    <%= f.text_field :last_name %>
-  </div>
+      <div class="field">
+        <%= f.label :last_name %> <br>
+        <%= f.text_field :last_name %>
+      </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+      <div class="email-field">
+        <%= f.label :email %><br/>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+      <div class="field">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters min)</em>
+        <% end %><br/>
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+      <div class="field">
+        <%= f.label :password_confirmation %><br/>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
 
-  <div data-controller="photo-preview">
-    <div class="field"
-    <%= f.label :profile_photo, 'Add in your profile photo!' %> <br>
-    <%= f.file_field :profile_photo,
-                     direct_upload: true,
-                     accept: "image/jpeg,image/png,image/jpg",
-                     'data-photo-preview-target' => "imageField",
-                     'data-action' => 'input->photo-preview#preview' %>
+      <div data-controller="photo-preview" class="profile-photo-select">
+        <div class="field"
+        <%= f.label :profile_photo, 'Add in your profile photo!' %> <br>
+        <%= f.file_field :profile_photo,
+                         direct_upload: true,
+                         accept: "image/jpeg,image/png,image/jpg",
+                         'data-photo-preview-target' => "imageField",
+                         'data-action' => 'input->photo-preview#preview' %>
+      </div>
+
+      <div>
+        <%= image_tag('default_profile.jpg', class: "profile-photo", 'data-photo-preview-target' => 'imagePreview') %>
+      </div>
     </div>
 
-    <div>
-      <%= image_tag('default_profile.jpg', class: "profile-photo", 'data-photo-preview-target' => 'imagePreview') %>
+    <div class="actions">
+      <%= f.submit "Sign up" %>
+
+      <%= form_for "Login With Google",
+                   url: user_google_oauth2_omniauth_authorize_path,
+                   method: :post,
+                   data: { turbo: false },
+                   class: "google-login" do |f| %>
+        <% f.submit "Login With Google", type: 'image', src: image_path('google_login') %>
+      <% end %>
     </div>
+    </div>
+  <% end %>
+  <div class="sign-in-link">
+    Already have an account? <%= link_to "Sign In", new_user_session_path %>
   </div>
+</div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= form_for "Login",
-             url: user_google_oauth2_omniauth_authorize_path,
-             method: :post,
-             data: { turbo: false } do |f| %>
-  <%f.submit "Login", type: 'image', src: image_path('google_login') %>
-<% end %>
-
-
-<%= render "devise/shared/links" %>

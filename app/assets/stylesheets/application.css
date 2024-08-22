@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/assets/Poppins-Regular.ttf') format('truetype');
+}
+
+body {
+  background-color: #EFE2BA;
+  font-family: 'Poppins',  sans-serif;
+}
+
+.title {
+  text-align: center;
+}
+

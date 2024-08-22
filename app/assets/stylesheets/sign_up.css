@@ -4,3 +4,59 @@
   border-radius: 50%;
   object-fit: cover;
 }
+
+.sign-up-content{
+  max-width: 550px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sign-up-content input {
+  max-height: 25px;
+  height: 10vh;
+  border-radius: 5px;
+  border: none;
+  background-color: #f6f1df;
+  font-family: 'Poppins',  sans-serif;
+}
+
+.sign-up-content input:hover, .sign-up-content input:focus  {
+  background-color: #f3e9d5;
+}
+
+.sign-up-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr) ;
+  row-gap: 10px;
+}
+
+.email-field {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+.email-field > input {
+  width: 80%;
+}
+
+.profile-photo-select {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  justify-self: center;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.profile-photo {
+  padding: 10px;
+}
+
+.actions {
+  display: flex;
+  gap: 20px;
+  height: 40px;
+}
+
+
+
