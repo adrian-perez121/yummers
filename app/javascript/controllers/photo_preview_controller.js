@@ -21,8 +21,6 @@ export default class extends Controller {
 
     if (file) {
       reader.readAsDataURL(file)
-    } else {
-      preview.src = "" // There was no file but this shouldn't happen
-    }
+    } 
   }
 }
