@@ -51,4 +51,12 @@
   </div>
 <% end %>
 
+<%= form_for "Login",
+             url: user_google_oauth2_omniauth_authorize_path,
+             method: :post,
+             data: { turbo: false } do |f| %>
+  <%f.submit "Login", type: 'image', src: image_path('google_login') %>
+<% end %>
+
+
 <%= render "devise/shared/links" %>
