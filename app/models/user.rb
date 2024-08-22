@@ -7,6 +7,7 @@ class User < ApplicationRecord
   validates :first_name, :last_name, :email, presence: true
 
   has_one_attached :profile_photo
+  has_many :posts
 
   # FIX TOMORROW
   def self.from_google(u)
