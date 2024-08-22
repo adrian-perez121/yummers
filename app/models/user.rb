@@ -9,9 +9,8 @@ class User < ApplicationRecord
   has_one_attached :profile_photo
   has_many :posts
 
-  # FIX TOMORROW
   def self.from_google(u)
-    create_with(uid: u[:uid], first_name: u[:name], last_name: u[:name], provider: 'google',
+    create_with(uid: u[:uid], first_name: u[:first_name], last_name: u[:last_name], provider: 'google',
                 password: Devise.friendly_token[0, 20]).find_or_create_by!(email: u[:email])
   end
 end
