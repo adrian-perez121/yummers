@@ -4,3 +4,18 @@
   <%= link_to "Sign Out", destroy_user_session_path, data: {turbo_method: :delete} %>
   <%= link_to "Edit Profile", edit_user_registration_path %>
 </div>
+
+<div class="sent-requests">
+  <h2>Sent Requests</h2>
+  <% @sent_requests.each do |user| %>
+  <div><%= user.first_name %></div>
+  <% end %>
+</div>
+
+<div class="follow-requests">
+  <h2>These People Want to Follow You</h2>
+
+  <% @follow_requests.each do |user| %>
+    <div><%= user.first_name %></div>
+  <% end %>
+</div>

@@ -3,5 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @sent_requests = @user.requests
+    @follow_requests = @user.requesters
   end
 end
