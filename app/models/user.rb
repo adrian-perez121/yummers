@@ -9,8 +9,16 @@ class User < ApplicationRecord
   has_one_attached :profile_photo
   has_many :posts
 
+  after_commit :attach_default_profile_photo
+
   def self.from_google(u)
     create_with(uid: u[:uid], first_name: u[:first_name], last_name: u[:last_name], provider: 'google',
                 password: Devise.friendly_token[0, 20]).find_or_create_by!(email: u[:email])
+  end
+
+  private
+
+  def attach_default_profile_photo
+    profile_photo.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'default_profile.jpg')), filename: 'default_profile.jpg', content_type: 'image/jpg') unless profile_photo.attached?
   end
 end
