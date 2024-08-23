@@ -23,6 +23,14 @@ RSpec.describe User, type: :model do
       user = User.new(first_name: 'Foo', last_name: 'bar', password: '123456')
       expect(user).not_to be_valid
     end
+  end
 
+  context 'when creating a user without an image' do
+    it 'attaches the default image to the user' do
+      user = User.create!(first_name: 'Foo', last_name: 'bar', email: 'foo@bar', password: '123456')
+      expect(user.profile_photo).to be_attached
+      expect(user.profile_photo.blob.filename).to eq('default_profile.jpg')
+      user.destroy!
+    end
   end
 end
