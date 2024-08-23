@@ -52,7 +52,7 @@
       </div>
 
       <div>
-        <%= image_tag('default_profile.jpg', class: "profile-photo", 'data-photo-preview-target' => 'imagePreview') %>
+        <%= image_tag(url_for(current_user.profile_photo), class: "profile-photo", 'data-photo-preview-target' => 'imagePreview') %>
       </div>
     </div>
     </div>
