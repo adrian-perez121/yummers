@@ -9,6 +9,13 @@ class User < ApplicationRecord
   has_one_attached :profile_photo
   has_many :posts
 
+  # Requesting {
+  has_many :follow_requests, foreign_key: 'requested_id', class_name: 'Request'
+  has_many :requesters, through: :follow_requests
+
+  has_many :follow_requested, foreign_key: 'requester_id', class_name: 'Request'
+  has_many :requests, through: :follow_requested, source: :requested # Yeah, this naming is a bit weird
+  # }
   after_commit :attach_default_profile_photo
 
   def self.from_google(u)
