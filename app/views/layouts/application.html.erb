@@ -14,7 +14,7 @@
     <h1 class="title">YUMMERS</h1>
     <div class="tmp-header">
       <% if current_user %>
-        <%= link_to 'Profile', user_path %>
+        <%= link_to 'Profile', user_path(current_user) %>
       <% end %>
     </div>
     <%= yield %>
