@@ -21,6 +21,15 @@
   font-family: 'Poppins',  sans-serif;
 }
 
+.sign-up-content button {
+  max-height: 25px;
+  height: 10vh;
+  border-radius: 5px;
+  border: none;
+  background-color: #f6f1df;
+  font-family: 'Poppins',  sans-serif;
+}
+
 .sign-up-content input:hover, .sign-up-content input:focus  {
   background-color: #f3e9d5;
 }
@@ -30,6 +39,8 @@
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(3, 1fr) ;
   row-gap: 10px;
+  align-items: center;
+  align-content: center;
 }
 
 .email-field {
@@ -54,6 +65,8 @@
   gap: 20px;
   height: 40px;
 }
+
+
 
 
 
