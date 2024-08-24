@@ -25,12 +25,12 @@
   <%= form_with url: user_path(current_user), method: :get do |f|%>
     <div class="field">
       <%= f.label :user_first %>
-      <%= f.text_field :user_first%>
+      <%= f.text_field :user_first, value: params[:user_first]%>
     </div>
 
     <div class="field">
       <%=f.label :user_last %>
-      <%= f.text_field :user_last %>
+      <%= f.text_field :user_last, value: params[:user_last] %>
     </div>
 
     <div class="actions">
