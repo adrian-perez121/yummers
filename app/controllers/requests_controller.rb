@@ -3,6 +3,7 @@ class RequestsController < ApplicationController
 
   def create
     Request.create!(request_params)
+    redirect_to user_path(params[:request][:requested_id])
   end
 
   private
@@ -10,5 +11,4 @@ class RequestsController < ApplicationController
   def request_params
     params.require(:request).permit(:requested_id, :requester_id)
   end
-  # Request.where(requester_id: 2, requested_id: 3).exists?
 end
