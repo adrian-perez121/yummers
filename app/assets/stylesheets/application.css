@@ -19,8 +19,14 @@
   src: url('/assets/Poppins-Regular.ttf') format('truetype');
 }
 
+:root {
+  --website-background-color: #EFE2BA;
+  --field-background-color: #f6f1df;
+  --field-hover-focus-color: #f3e9d5;
+}
+
 body {
-  background-color: #EFE2BA;
+  background-color: var(--website-background-color) ;
   font-family: 'Poppins',  sans-serif;
 }
 

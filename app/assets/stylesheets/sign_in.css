@@ -10,10 +10,10 @@
   height: 10vh;
   border-radius: 5px;
   border: none;
-  background-color: #f6f1df;
+  background-color: var(--field-background-color);
   font-family: 'Poppins',  sans-serif;
 }
 
 .sign-in-content input:hover, .sign-up-content input:focus  {
-  background-color: #f3e9d5;
+  background-color: var(--field-hover-focus-color);
 }
