@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :posts
+  resources :requests, only: [:create, :destroy]
 
 
   # Defines the root path route ("/")
