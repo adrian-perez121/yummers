@@ -1,0 +1,29 @@
+<div class="user-search">
+  <h2>Search Users</h2>
+  <%= form_with url: user_path(current_user), method: :get do |f|%>
+    <div class="field">
+      <%= f.label :user_first %>
+      <%= f.text_field :user_first, value: params[:user_first]%>
+    </div>
+
+    <div class="field">
+      <%=f.label :user_last %>
+      <%= f.text_field :user_last, value: params[:user_last] %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Search" %>
+    </div>
+  <% end %>
+
+  <div class="results">
+    <% if @searched_users %>
+      <% @searched_users.each do |user| %>
+        <div><%= link_to "#{user.first_name} #{user.last_name}", user_path(user)%></div>
+      <% end %>
+    <% else %>
+      <div>No user</div>
+    <% end %>
+  </div>
+
+</div>

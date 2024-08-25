@@ -20,45 +20,8 @@
   <% end %>
 </div>
 
-<div class="user-search">
-  <h2>Search Users</h2>
-  <%= form_with url: user_path(current_user), method: :get do |f|%>
-    <div class="field">
-      <%= f.label :user_first %>
-      <%= f.text_field :user_first, value: params[:user_first]%>
-    </div>
+<%= render 'user_search' %>
+<%= render 'user_request', user: @user %>
 
-    <div class="field">
-      <%=f.label :user_last %>
-      <%= f.text_field :user_last, value: params[:user_last] %>
-    </div>
 
-    <div class="actions">
-      <%= f.submit "Search" %>
-    </div>
-  <% end %>
-
-  <div class="results">
-    <% if @searched_users %>
-    <% @searched_users.each do |user| %>
-      <div><%= link_to "#{user.first_name} #{user.last_name}", user_path(user)%></div>
-      <% end %>
-    <% else %>
-      <div>No user</div>
-    <% end %>
-  </div>
-
-</div>
-
-<% if Request.can_request?(current_user, @user)%>
-  <div class="request-box">
-    <%= form_with model: Request do |f|%>
-      <%= f.hidden_field :requester_id, value: current_user.id %>
-      <%= f.hidden_field :requested_id, value: @user.id %>
-      <%= f.submit 'Request This User' %>
-    <% end %>
-  </div>
-<% else %>
-  <span class="request-message">You have already requested <%= @user.first_name %>!</span>
-<% end %>
 

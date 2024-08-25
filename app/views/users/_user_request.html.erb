@@ -1,0 +1,11 @@
+<% if Request.can_request?(current_user, user)%>
+  <div class="request-box">
+    <%= form_with model: Request do |f|%>
+      <%= f.hidden_field :requester_id, value: current_user.id %>
+      <%= f.hidden_field :requested_id, value: user.id %>
+      <%= f.submit 'Request This User' %>
+    <% end %>
+  </div>
+<% elsif user != current_user %>
+  <span class="request-message">You have already requested <%= user.first_name %>!</span>
+<% end %>
