@@ -7,7 +7,11 @@ class RequestsController < ApplicationController
   end
 
   def destroy
+    request = Request.find(params[:id])
+    requested_user = request.requested
+    request.destroy!
 
+    redirect_to user_path(requested_user)
   end
 
   private

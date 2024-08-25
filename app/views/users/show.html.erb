@@ -16,7 +16,7 @@
   <h2>These People Want to Follow You</h2>
 
   <% @follow_requests.each do |request| %>
-    <div><%= request.requester.first_name %></div>
+    <div><%= request.requester.first_name %> <%= button_to 'Reject', request_path(request.id), method: :delete, class: 'reject-request' %></div>
   <% end %>
 </div>
 
