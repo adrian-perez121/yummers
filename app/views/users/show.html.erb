@@ -16,7 +16,16 @@
   <h2>These People Want to Follow You</h2>
 
   <% @follow_requests.each do |request| %>
-    <div><%= request.requester.first_name %> <%= button_to 'Reject', request_path(request.id), method: :delete, class: 'reject-request' %></div>
+    <div>
+      <%= request.requester.first_name %>
+      <%= form_with model: Following do |f| %>
+        <%= hidden_field_tag 'request[id]', request.id%>
+        <%= f.hidden_field :followee_id, value: @user.id%>
+        <%= f.hidden_field :follower_id, value: request.requester.id %>
+        <%= f.submit 'Accept' %>
+      <% end %>
+      <%= button_to 'Reject', request_path(request.id), method: :delete, class: 'reject-request' %>
+    </div>
   <% end %>
 </div>
 
