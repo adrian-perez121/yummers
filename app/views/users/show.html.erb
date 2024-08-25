@@ -29,6 +29,20 @@
   <% end %>
 </div>
 
+<div class="followers">
+  <h2>Your Followers</h2>
+  <% @followers.each do |follow| %>
+    <div><%= follow.follower.first_name %></div>
+  <% end %>
+</div>
+
+<div class="following">
+  <h2>You Are Following</h2>
+  <% @following.each do |follow| %>
+    <div><%= follow.followee.first_name %></div>
+  <% end %>
+</div>
+
 <%= render 'user_search' %>
 <%= render 'user_request', user: @user %>
 
