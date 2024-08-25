@@ -3,8 +3,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @sent_requests = @user.requests
-    @follow_requests = @user.requesters
+    @sent_requests = Request.where(requester_id: @user.id).all.includes(:requested)
+    @follow_requests = Request.where(requested_id: @user.id).all.includes(:requester)
     @searched_users = search_users
   end
 

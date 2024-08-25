@@ -6,6 +6,10 @@ class RequestsController < ApplicationController
     redirect_to user_path(params[:request][:requested_id])
   end
 
+  def destroy
+
+  end
+
   private
 
   def request_params

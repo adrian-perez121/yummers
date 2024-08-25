@@ -7,16 +7,16 @@
 
 <div class="sent-requests">
   <h2>Sent Requests</h2>
-  <% @sent_requests.each do |user| %>
-  <div><%= user.first_name %></div>
+  <% @sent_requests.each do |request| %>
+  <div><%= request.requested.first_name %></div>
   <% end %>
 </div>
 
 <div class="follow-requests">
   <h2>These People Want to Follow You</h2>
 
-  <% @follow_requests.each do |user| %>
-    <div><%= user.first_name %></div>
+  <% @follow_requests.each do |request| %>
+    <div><%= request.requester.first_name %></div>
   <% end %>
 </div>
 
