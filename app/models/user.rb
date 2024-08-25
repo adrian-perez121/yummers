@@ -16,6 +16,14 @@ class User < ApplicationRecord
   has_many :follow_requested, foreign_key: 'requester_id', class_name: 'Request'
   has_many :requests, through: :follow_requested, source: :requested # Yeah, this naming is a bit weird
   # }
+
+  # Requesting {
+  has_many :followings, foreign_key: 'followee_id' # Other users a user is following
+  has_many :followers, through: :followings
+
+  has_many :follows, class_name: 'Following', foreign_key: 'follower_id'
+  has_many :followees, through: :follows
+  # }
   after_commit :attach_default_profile_photo
 
   def self.from_google(u)
