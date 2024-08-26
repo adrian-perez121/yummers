@@ -12,11 +12,8 @@
 
   <body>
     <h1 class="title">YUMMERS</h1>
-    <div class="tmp-header">
-      <% if current_user %>
-        <%= link_to 'Profile', user_path(current_user) %>
-      <% end %>
-    </div>
-    <%= yield %>
-  </body>
-</html>
+    <% if user_signed_in? %>
+    <div class="content">
+      <div class="nav-bar">
+        <div class="home"><%= link_to 'Home', root_path %></div>
+        <div class="profile">

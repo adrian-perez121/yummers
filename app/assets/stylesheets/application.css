@@ -26,11 +26,8 @@
 }
 
 body {
-  background-color: var(--website-background-color) ;
+  background-color: var(--website-background-color);
+  margin: 0;
   font-family: 'Poppins',  sans-serif;
-}
-
-.title {
-  text-align: center;
-}
-
+  height: 100vh;
+  displa
