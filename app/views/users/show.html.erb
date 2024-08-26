@@ -39,7 +39,7 @@
 <div class="following">
   <h2>You Are Following</h2>
   <% @following.each do |follow| %>
-    <div><%= follow.followee.first_name %></div>
+    <div><%= follow.followee.first_name %> <%= link_to 'Unfollow', following_path(follow, user_id: @user.id), data: { turbo_method: :delete } %></div>
   <% end %>
 </div>
 

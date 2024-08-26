@@ -10,6 +10,14 @@ class FollowingsController < ApplicationController
     redirect_to @user
   end
 
+  def destroy
+    @f = Following.find(params[:id])
+    @user_redirect = User.find(params[:user_id])
+    @f.destroy!
+
+    redirect_to @user_redirect
+  end
+
   private
 
   def follow_params
