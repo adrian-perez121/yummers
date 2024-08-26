@@ -30,4 +30,46 @@ body {
   margin: 0;
   font-family: 'Poppins',  sans-serif;
   height: 100vh;
-  displa
+  display: grid;
+  grid-auto-rows: auto 1fr;
+}
+
+.title {
+  text-align: center;
+  height: auto;
+
+}
+
+.content {
+  display: flex;
+}
+
+.nav-bar {
+  height: auto;
+  flex: 1;
+  display: flex;
+  flex-flow: column;
+  align-items: start;
+  gap: 30px;
+}
+
+.nav-bar > *:first-child {
+  margin-top: 40px;
+}
+
+.nav-bar > * {
+  font-size: larger;  /* Should be tmp */
+  padding: 5px 80px;
+  margin-left: 30px;
+}
+
+.nav-bar > div:hover {
+  background-color: var(--field-hover-focus-color);
+  border-radius: 20px;
+}
+
+.user-views {
+  flex: 4;
+}
+
+

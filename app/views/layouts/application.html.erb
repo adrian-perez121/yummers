@@ -16,4 +16,16 @@
     <div class="content">
       <div class="nav-bar">
         <div class="home"><%= link_to 'Home', root_path %></div>
-        <div class="profile">
+        <div class="profile"> <%= link_to 'Profile', current_user %></div>
+      </div>
+
+
+      <div class="user-views">
+        <%= yield %>
+      </div>
+    </div>
+    <% else %>
+      <%= yield %>
+    <% end %>
+  </body>
+</html>
