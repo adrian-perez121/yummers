@@ -1,50 +1,62 @@
-<h1>Welcome <%= @user.first_name %></h1>
+<div class="scrollable user-page">
+  <h1>Welcome <%= @user.first_name %></h1>
 
-<div class="tmp-header">
-  <%= link_to "Sign Out", destroy_user_session_path, data: {turbo_method: :delete} %>
-  <%= link_to "Edit Profile", edit_user_registration_path %>
-</div>
-
-<div class="sent-requests">
-  <h2>Sent Requests</h2>
-  <% @sent_requests.each do |request| %>
-  <div><%= request.requested.first_name %></div>
-  <% end %>
-</div>
-
-<div class="follow-requests">
-  <h2>These People Want to Follow You</h2>
-
-  <% @follow_requests.each do |request| %>
-    <div>
-      <%= request.requester.first_name %>
-      <%= form_with model: Following do |f| %>
-        <%= hidden_field_tag 'request[id]', request.id%>
-        <%= f.hidden_field :followee_id, value: @user.id%>
-        <%= f.hidden_field :follower_id, value: request.requester.id %>
-        <%= f.submit 'Accept' %>
-      <% end %>
-      <%= button_to 'Reject', request_path(request.id), method: :delete, class: 'reject-request' %>
+  <% if current_user == @user %>
+    <div class="tmp-header">
+      <%= link_to "Sign Out", destroy_user_session_path, data: { turbo_method: :delete } %>
+      <%= link_to "Edit Profile", edit_user_registration_path %>
     </div>
   <% end %>
-</div>
 
-<div class="followers">
-  <h2>Your Followers</h2>
-  <% @followers.each do |follow| %>
-    <div><%= follow.follower.first_name %> <%= link_to 'Remove', following_path(follow, user_id: @user.id), data: { turbo_method: :delete } %></div>
-  <% end %>
-</div>
+  <div class="sent-requests">
+    <h2>Sent Requests</h2>
+    <% @sent_requests.each do |request| %>
+      <div><%= request.requested.first_name %></div>
+    <% end %>
+  </div>
 
-<div class="following">
-  <h2>You Are Following</h2>
-  <% @following.each do |follow| %>
-    <div><%= follow.followee.first_name %> <%= link_to 'Unfollow', following_path(follow, user_id: @user.id), data: { turbo_method: :delete } %></div>
-  <% end %>
-</div>
+  <div class="follow-requests">
+    <h2>Follow Requests</h2>
 
-<%= render 'user_search' %>
-<%= render 'user_request', user: @user %>
+    <% @follow_requests.each do |request| %>
+      <div>
+        <%= request.requester.first_name %>
+        <% if current_user == @user %>
+          <%= form_with model: Following do |f| %>
+            <%= hidden_field_tag 'request[id]', request.id %>
+            <%= f.hidden_field :followee_id, value: @user.id %>
+            <%= f.hidden_field :follower_id, value: request.requester.id %>
+            <%= f.submit 'Accept' %>
+          <% end %>
+          <%= button_to 'Reject', request_path(request.id), method: :delete, class: 'reject-request' %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="followers">
+    <h2>Followers</h2>
+    <% @followers.each do |follow| %>
+      <div><%= follow.follower.first_name %>
+        <% if current_user == @user %>
+          <%= link_to 'Remove', following_path(follow, user_id: @user.id), data: { turbo_method: :delete } %></div>
+        <% end %>
+    <% end %>
+  </div>
+
+  <div class="following">
+    <h2>Following</h2>
+    <% @following.each do |follow| %>
+      <div><%= follow.followee.first_name %>
+        <% if current_user == @user %>
+          <%= link_to 'Unfollow', following_path(follow, user_id: @user.id), data: { turbo_method: :delete } %></div>
+        <% end %>
+    <% end %>
+  </div>
+
+  <%= render 'user_search' %>
+  <%= render 'user_request', user: @user %>
+</div>
 
 
 

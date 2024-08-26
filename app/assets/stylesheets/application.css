@@ -32,11 +32,12 @@ body {
   height: 100vh;
   display: grid;
   grid-auto-rows: auto 1fr;
+  overflow: hidden;
 }
 
 .title {
   text-align: center;
-  height: auto;
+  height: 5vh;
 
 }
 
@@ -70,6 +71,10 @@ body {
 
 .user-views {
   flex: 4;
+}
+
+.scrollable {
+  overflow-y: auto;
 }
 
 
