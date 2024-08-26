@@ -11,7 +11,12 @@
   <div class="sent-requests">
     <h2>Sent Requests</h2>
     <% @sent_requests.each do |request| %>
-      <div><%= request.requested.first_name %></div>
+      <div>
+        <%= request.requested.first_name %>
+        <% if current_user == @user %>
+          <%= link_to 'Cancel', request_path(request.id, user_id: @user.id), data: { turbo_method: :delete } %>
+        <% end %>
+      </div>
     <% end %>
   </div>
 
@@ -28,7 +33,7 @@
             <%= f.hidden_field :follower_id, value: request.requester.id %>
             <%= f.submit 'Accept' %>
           <% end %>
-          <%= button_to 'Reject', request_path(request.id), method: :delete, class: 'reject-request' %>
+          <%= button_to 'Reject', request_path(request.id, user_id: @user.id), method: :delete, class: 'reject-request' %>
         <% end %>
       </div>
     <% end %>
