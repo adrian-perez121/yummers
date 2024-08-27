@@ -47,7 +47,7 @@
             <%= hidden_field_tag 'request[id]', request.id %>
             <%= f.hidden_field :followee_id, value: @user.id %>
             <%= f.hidden_field :follower_id, value: request.requester.id %>
-            <%= f.submit 'Accept' %>
+            <%= button_tag 'Accept', type: 'submit'%>
           <% end %>
           <%= button_to 'Reject', request_path(request.id, user_id: @user.id), method: :delete, class: 'reject-request' %>
         <% end %>
@@ -74,10 +74,10 @@
         <% end %>
     <% end %>
   </div>
+  </div>
 
   <%= render 'user_search' %>
   <%= render 'user_request', user: @user %>
-  </div>
 </div>
 
 
