@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="hidden"
 export default class extends Controller {
-  // This hidden controller chooses the element to hide based on class name
+  // This hidden controller chooses the element to hide based on id
   static targets = ["input", "field"]
   connect() {
   }
