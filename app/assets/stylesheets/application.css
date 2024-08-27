@@ -77,4 +77,8 @@ body {
   overflow-y: auto;
 }
 
+.hidden {
+  display: none;
+}
+
 
