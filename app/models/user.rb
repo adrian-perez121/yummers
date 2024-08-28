@@ -7,7 +7,7 @@ class User < ApplicationRecord
   validates :first_name, :last_name, :email, presence: true
 
   has_one_attached :profile_photo
-  has_many :posts
+  has_many :posts, foreign_key: 'author_id'
 
   # Requesting {
   has_many :follow_requests, foreign_key: 'requested_id', class_name: 'Request'
