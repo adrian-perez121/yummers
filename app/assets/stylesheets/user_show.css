@@ -27,3 +27,11 @@
 .user-nav form {
   display: inline;
 }
+
+.user-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+
