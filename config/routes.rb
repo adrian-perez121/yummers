@@ -10,8 +10,10 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
 
-  resources :users
-  resources :posts
+  resources :users do
+    resources :posts, only: [:new, :create, :edit, :update, :destroy]
+  end
+  resources :posts, only: [:index, :show]
   resources :requests, only: [:create, :destroy]
   resources :followings, only: [:create, :destroy]
 
