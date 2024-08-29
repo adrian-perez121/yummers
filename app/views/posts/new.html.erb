@@ -1,6 +1,6 @@
 <h1>Create a New Post</h1>
 
-<%= form_with model: @post do |f|%>
+<%= form_with model: [@user, @post] do |f|%>
   <div class="field">
     <%= f.label :description %>
     <ul class="post-errors">
