@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     retrieve_followers_and_requests
+    @posts = @user.posts
     @searched_users = search_users
   end
 

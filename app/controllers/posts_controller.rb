@@ -4,6 +4,11 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
+  def show
+    @user = User.find(params[:user_id])
+    @post = Post.find(params[:id])
+  end
+
   def new
     @user = User.find(params[:user_id])
     @post = @user.posts.build
