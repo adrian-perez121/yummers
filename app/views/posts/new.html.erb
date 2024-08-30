@@ -1,14 +1,24 @@
-<div class="scrollable new-post">
+<div class="scrollable post-form" data-controller="hidden">
   <h1>Create a New Post</h1>
 
+  <nav>
+    <button type="button" data-hidden-target="input" data-action="hidden#toggle" value="description">Description</button>
+    <button type="button" data-hidden-target="input" data-action="hidden#toggle" value="recipe">Recipe</button>
+  </nav>
+
   <%= form_with model: [@user, @post] do |f| %>
-    <div class="field" data-controller="word-count"
+
+    <% description_errors = @post.errors.full_messages_for(:description)%>
+    <% recipe_errors = @post.errors.full_messages_for(:recipe)%>
+
+    <div id="description" class="field <%= 'hidden' if !(description_errors.empty? || recipe_errors.empty?) || (!recipe_errors.empty? && description_errors.empty?)%>" data-controller="word-count"
+         data-hidden-target="field"
          data-word-count-max-length-value="<%= Post.max_length %>"
-         data-word-count-min-length-value="<%= Post.min_length %>"
-    >
+         data-word-count-min-length-value="<%= Post.min_length %>">
+
       <%= f.label :description %>
       <ul class="post-errors">
-        <% @post.errors.full_messages_for(:description).each do |msg| %>
+        <% description_errors.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>
@@ -19,16 +29,20 @@
 
       %>
       <span data-word-count-target="characterOutput"></span>
+      <% unless recipe_errors.empty?  %>
+        <span class="post-errors">Please Check Recipe</span>
+      <% end %>
 
     </div>
 
-    <div class="field" data-controller="word-count"
+    <div id="recipe" class="field <%= 'hidden' if description_errors.empty? && recipe_errors.empty? || !description_errors.empty? && recipe_errors.empty? %>" data-controller="word-count"
+         data-hidden-target="field"
          data-word-count-max-length-value="<%= Post.max_length %>"
          data-word-count-min-length-value="<%= Post.min_length %>"
     >
       <%= f.label :recipe %>
       <ul class="post-errors">
-        <% @post.errors.full_messages_for(:recipe).each do |msg| %>
+        <% recipe_errors.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>
@@ -37,6 +51,9 @@
                       'data-action' => 'input->word-count#lengthOutput',
                       maxLength: Post.max_length %>
       <span data-word-count-target="characterOutput"></span>
+      <% unless description_errors.empty?  %>
+        <span class="post-errors">Please Check Description</span>
+      <% end %>
     </div>
 
     <%= button_tag 'Post', type: 'submit', class: 'post-button' %>

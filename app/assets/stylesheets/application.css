@@ -87,7 +87,7 @@ ul {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .post-button {
