@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  @@min_length = 50
+  @@min_length = 10
   @@max_length = 500
 
   belongs_to :author, class_name: 'User'

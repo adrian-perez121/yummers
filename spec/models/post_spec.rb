@@ -19,8 +19,8 @@ RSpec.describe Post, type: :model do
     end
 
     it 'is not valid with a short description or recipe' do
-      post1 = @u1.posts.build(description: 'hey there', recipe: @sample_text)
-      post2 = @u1.posts.build(description: @sample_text, recipe: 'this is too short')
+      post1 = @u1.posts.build(description: 'hey', recipe: @sample_text)
+      post2 = @u1.posts.build(description: @sample_text, recipe: 'hi')
       expect(post1).not_to be_valid
       expect(post2).not_to be_valid
     end
