@@ -44,6 +44,16 @@ ul {
   list-style: none;
 }
 
+a {
+  appearance: none;
+  text-decoration: none;
+  color: black;
+}
+
+a:visited {
+  color: inherit;
+}
+
 .title {
   text-align: center;
   height: 5vh;
