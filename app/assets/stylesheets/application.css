@@ -35,6 +35,15 @@ body {
   overflow: hidden;
 }
 
+button {
+  appearance: none;
+  outline: none;
+}
+
+ul {
+  list-style: none;
+}
+
 .title {
   text-align: center;
   height: 5vh;
@@ -80,5 +89,28 @@ body {
 .hidden {
   display: none;
 }
+
+.post-button {
+  color: white;
+  width: 100px;
+  height: 40px;
+  background-color: #4056A1;
+  box-shadow: 4px 3px 5px 1px rgba(0, 0, 0, 0.42);
+  border-radius: 10px;
+  border: none;
+  transition: 0.2s;
+}
+
+.post-button:hover, .post-button:focus {
+  background-color: rgba(64, 86, 161, 0.84);
+  box-shadow: 4px 3px 5px 1px rgba(0, 0, 0, 0.29);
+}
+
+.post-button:active {
+  transition: 0.2s;
+  box-shadow: none;
+}
+
+
 
 
