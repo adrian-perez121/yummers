@@ -4,6 +4,8 @@
     <%= link_to user.name, user %>
   </div>
 
+    <%= image_tag(url_for(post.image), class:'post-image')%>
+
   <div class="body" data-controller="hidden">
     <nav class="post-buttons">
       <button type="button"

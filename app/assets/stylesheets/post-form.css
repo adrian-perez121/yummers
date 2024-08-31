@@ -82,4 +82,5 @@ ul {
 .post-form .post-image {
   height: 40vh;
   margin-top: 20px;
+  box-shadow: none;
 }
