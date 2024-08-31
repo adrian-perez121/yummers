@@ -23,6 +23,7 @@
   --website-background-color: #EFE2BA;
   --field-background-color: #f6f1df;
   --field-hover-focus-color: #f3e9d5;
+  --upload-color: #4056A1;
 }
 
 body {
@@ -106,7 +107,7 @@ a:hover, a:focus {
   color: white;
   width: 100px;
   height: 40px;
-  background-color: #4056A1;
+  background-color: var(--upload-color);
   box-shadow: 4px 3px 5px 1px rgba(0, 0, 0, 0.42);
   border-radius: 10px;
   border: none;
@@ -126,6 +127,22 @@ a:hover, a:focus {
 .selected {
   border-bottom: solid #4056A1 !important;
   border-bottom-style: inset !important;
+}
+
+input[type=file] {
+  display: block;
+  color: var(--upload-color);
+}
+input[type=file]::file-selector-button {
+  appearance: none;
+  outline: none;
+  border: none;
+  background-color: var(--field-background-color);
+  border-radius: 3px ;
+}
+
+input[type=file]::file-selector-button:hover, input[type=file]::file-selector-button:focus {
+  background-color: var(--field-hover-focus-color);
 }
 
 
