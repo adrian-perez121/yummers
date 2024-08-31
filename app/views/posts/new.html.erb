@@ -8,52 +8,69 @@
 
   <%= form_with model: [@user, @post] do |f| %>
 
-    <% description_errors = @post.errors.full_messages_for(:description)%>
-    <% recipe_errors = @post.errors.full_messages_for(:recipe)%>
+    <div>
+      <% description_errors = @post.errors.full_messages_for(:description) %>
+      <% recipe_errors = @post.errors.full_messages_for(:recipe) %>
 
-    <div id="description" class="field <%= 'hidden' if !(description_errors.empty? || recipe_errors.empty?) || (!recipe_errors.empty? && description_errors.empty?)%>" data-controller="word-count"
-         data-hidden-target="field"
-         data-word-count-max-length-value="<%= Post.max_length %>"
-         data-word-count-min-length-value="<%= Post.min_length %>">
+      <div id="description" class="field <%= 'hidden' if !(description_errors.empty? || recipe_errors.empty?) || (!recipe_errors.empty? && description_errors.empty?) %>" data-controller="word-count"
+           data-hidden-target="field"
+           data-word-count-max-length-value="<%= Post.max_length %>"
+           data-word-count-min-length-value="<%= Post.min_length %>">
 
-      <%= f.label :description %>
-      <ul class="post-errors">
-        <% description_errors.each do |msg| %>
-          <li><%= msg %></li>
+        <%= f.label :description %>
+        <ul class="post-errors">
+          <% description_errors.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+        <%= f.text_area :description,
+                        'data-word-count-target' => 'textField',
+                        'data-action' => 'input->word-count#lengthOutput',
+                        maxLength: Post.max_length
+
+        %>
+        <span data-word-count-target="characterOutput"></span>
+        <% unless recipe_errors.empty? %>
+          <span class="post-errors">Please Check Recipe</span>
         <% end %>
-      </ul>
-      <%= f.text_area :description,
-                      'data-word-count-target' => 'textField',
-                      'data-action' => 'input->word-count#lengthOutput',
-                      maxLength: Post.max_length
 
-      %>
-      <span data-word-count-target="characterOutput"></span>
-      <% unless recipe_errors.empty?  %>
-        <span class="post-errors">Please Check Recipe</span>
-      <% end %>
+      </div>
 
+      <div id="recipe" class="field <%= 'hidden' if description_errors.empty? && recipe_errors.empty? || !description_errors.empty? && recipe_errors.empty? %>" data-controller="word-count"
+           data-hidden-target="field"
+           data-word-count-max-length-value="<%= Post.max_length %>"
+           data-word-count-min-length-value="<%= Post.min_length %>"
+      >
+        <%= f.label :recipe %>
+        <ul class="post-errors">
+          <% recipe_errors.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+        <%= f.text_area :recipe,
+                        'data-word-count-target' => 'textField',
+                        'data-action' => 'input->word-count#lengthOutput',
+                        maxLength: Post.max_length %>
+        <span data-word-count-target="characterOutput"></span>
+        <% unless description_errors.empty? %>
+          <span class="post-errors">Please Check Description</span>
+        <% end %>
+      </div>
     </div>
 
-    <div id="recipe" class="field <%= 'hidden' if description_errors.empty? && recipe_errors.empty? || !description_errors.empty? && recipe_errors.empty? %>" data-controller="word-count"
-         data-hidden-target="field"
-         data-word-count-max-length-value="<%= Post.max_length %>"
-         data-word-count-min-length-value="<%= Post.min_length %>"
-    >
-      <%= f.label :recipe %>
-      <ul class="post-errors">
-        <% recipe_errors.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-      <%= f.text_area :recipe,
-                      'data-word-count-target' => 'textField',
-                      'data-action' => 'input->word-count#lengthOutput',
-                      maxLength: Post.max_length %>
-      <span data-word-count-target="characterOutput"></span>
-      <% unless description_errors.empty?  %>
-        <span class="post-errors">Please Check Description</span>
-      <% end %>
+    <div data-controller="photo-preview" class="image-select">
+      <div class="field">
+        <%= f.label :image, 'Add in an image!' %> <br>
+        <%= f.file_field :image,
+                         image: true,
+                         accept: "image/jpeg,image/png,image/jpg",
+                         'data-photo-preview-target' => "imageField",
+                         'data-action' => 'input->photo-preview#preview' %>
+      </div>
+
+      <div>
+        <%= image_tag('', class: "post-image", 'data-photo-preview-target' => 'imagePreview') %>
+      </div>
     </div>
 
     <%= button_tag 'Post', type: 'submit', class: 'post-button' %>
