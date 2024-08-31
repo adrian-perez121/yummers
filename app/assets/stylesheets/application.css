@@ -50,9 +50,11 @@ a {
   color: black;
 }
 
-a:visited {
-  color: inherit;
+a:hover, a:focus {
+  text-decoration: #D79922 underline;
+  color: #D79922;
 }
+
 
 .title {
   text-align: center;
