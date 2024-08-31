@@ -121,6 +121,11 @@ a:visited {
   box-shadow: none;
 }
 
+.selected {
+  border-bottom: solid #4056A1 !important;
+  border-bottom-style: inset !important;
+}
+
 
 
 
