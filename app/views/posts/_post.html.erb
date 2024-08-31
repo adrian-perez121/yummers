@@ -1,0 +1,31 @@
+<div class="post scrollable">
+  <div class="post-header">
+    <%= image_tag(url_for(user.profile_photo), class:'profile-photo') %>
+    <%= link_to user.name, user %>
+  </div>
+
+  <div class="body" data-controller="hidden">
+    <nav class="post-buttons">
+      <button type="button"
+              value="description"
+              class="selected"
+              data-hidden-target="input"
+              data-action="hidden#toggle"
+              >Description</button>
+      <button type="button"
+              value="recipe"
+              data-hidden-target="input"
+              data-action="hidden#toggle"
+              >Recipe</button>
+    </nav>
+    <div id="description" data-hidden-target="field">
+      <h3>Description</h3>
+      <%= post.description %>
+    </div>
+
+    <div id="recipe" class="hidden" data-hidden-target="field">
+      <h3>Recipe</h3>
+      <%= post.recipe %>
+    </div>
+  </div>
+</div>

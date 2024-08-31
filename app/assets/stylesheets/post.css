@@ -1,0 +1,36 @@
+.post {
+  display: flex;
+  flex-direction: column;
+  width: clamp(700px, 70vw,900px);
+}
+
+.post-header {
+  font-size: x-large;
+  display: flex;
+  align-items: center;
+}
+
+.post .profile-photo {
+  height: 60px;
+  width: 60px;
+}
+
+.post-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.post-buttons button {
+  height: 35px;
+  flex-grow: 1;
+  border: none;
+  background-color: var(--field-background-color);
+}
+
+.post-buttons button:hover, .post-buttons button:focus {
+  background-color: var(--field-hover-focus-color);
+}
+
+
+
+
