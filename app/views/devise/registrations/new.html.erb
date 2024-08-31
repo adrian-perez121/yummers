@@ -34,17 +34,18 @@
       </div>
 
       <div data-controller="photo-preview" class="profile-photo-select">
-        <div class="field"
+        <div class="field">
         <%= f.label :profile_photo, 'Add in your profile photo!' %> <br>
         <%= f.file_field :profile_photo,
                          direct_upload: true,
                          accept: "image/jpeg,image/png,image/jpg",
                          'data-photo-preview-target' => "imageField",
                          'data-action' => 'input->photo-preview#preview' %>
-      </div>
+        </div>
 
-      <div>
-        <%= image_tag('default_profile.jpg', class: "profile-photo", 'data-photo-preview-target' => 'imagePreview') %>
+        <div>
+          <%= image_tag('default_profile.jpg', class: "profile-photo", 'data-photo-preview-target' => 'imagePreview') %>
+        </div>
       </div>
     </div>
 
@@ -60,9 +61,9 @@
         <% f.submit "Login With Google", type: 'image', src: image_path('google_sign_up') %>
       <% end %>
     </div>
+
+    <div class="sign-in-link">
+      Already have an account? <%= link_to "Sign In", new_user_session_path %>
     </div>
-  <div class="sign-in-link">
-    Already have an account? <%= link_to "Sign In", new_user_session_path %>
-  </div>
 </div>
 
