@@ -41,6 +41,16 @@
   border-radius: 5px;
 }
 
+.description-button {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.recipe-button {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
 .preview .post {
   height: max(400px, 70vh);
   width: 100%;
