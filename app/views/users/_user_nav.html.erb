@@ -63,7 +63,7 @@
     <h2>Posts</h2>
     <% posts.each do |post| %>
          <div class="preview">
-           <%= render post, user: @user %>
+           <%= render post, user: @user, preview: true %>
            <%= (link_to 'Delete', user_post_path(user, post), data: { turbo_method: :delete}) if current_user == user%>
          </div>
     <% end %>

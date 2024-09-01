@@ -36,6 +36,7 @@
 .post-image {
   height: 50vh;
   align-self: center;
+  display: inline-block;
   box-shadow: 0 0 3px 5px rgba(241, 60, 32, 0.35);
   border-radius: 5px;
 }
@@ -56,6 +57,21 @@
 .preview .profile-photo {
   width: 40px;
   height: 40px;
+}
+
+.link-to-show {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+}
+
+.link-to-show div {
+  text-align: left;
+}
+
+.link-to-show:hover, .link-to-show:focus {
+  text-decoration: none !important;
+  color: black !important;
 }
 
 

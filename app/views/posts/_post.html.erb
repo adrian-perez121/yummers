@@ -4,7 +4,11 @@
     <%= link_to user.name, user %>
   </div>
 
-    <%= image_tag(url_for(post.image), class:'post-image')%>
+  <% if preview %>
+    <a class="link-to-show" href=<%= user_post_path(user, post)%>> <%= image_tag(url_for(post.image), class: 'post-image') %></a>
+  <% else %>
+    <%= image_tag(url_for(post.image), class: 'post-image') %>
+  <% end %>
 
   <div class="body" data-controller="hidden">
     <nav class="post-buttons">
@@ -20,14 +24,30 @@
               data-action="hidden#toggle"
               >Recipe</button>
     </nav>
-    <div id="description" data-hidden-target="field">
-      <h3>Description</h3>
-      <%= post.description %>
-    </div>
 
-    <div id="recipe" class="hidden" data-hidden-target="field">
-      <h3>Recipe</h3>
-      <%= post.recipe %>
-    </div>
+    <% if preview %>
+      <a class="link-to-show" href=<%= user_post_path(user, post) %>>
+        <div id="description" data-hidden-target="field">
+          <h3>Description</h3>
+          <p><%= post.description %></p>
+        </div>
+
+      <div id="recipe" class="hidden" data-hidden-target="field">
+        <h3>Recipe</h3>
+        <%= post.recipe %>
+      </div>
+      </a>
+
+    <% else %>
+      <div id="description" data-hidden-target="field">
+        <h3>Description</h3>
+        <p><%= post.description %></p>
+      </div>
+
+      <div id="recipe" class="hidden" data-hidden-target="field">
+        <h3>Recipe</h3>
+        <%= post.recipe %>
+      </div>
+    <% end %>
   </div>
 </div>
