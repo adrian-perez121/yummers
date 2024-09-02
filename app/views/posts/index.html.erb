@@ -1,4 +1,9 @@
-<h1>Posts</h1>
+<div class="scrollable posts-index">
+  <h1>Posts</h1>
 
-Nothing here yet!
-(For now this is a place holder)
+  <% @posts.each do |post| %>
+    <div class="preview">
+      <%= render post, user: post.author, preview: true %>
+    </div>
+  <% end %>
+</div>

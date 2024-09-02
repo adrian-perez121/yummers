@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :validate_user, only: [:new, :create, :edit, :update]
   def index
-    @posts = Post.all
+    @posts = Post.all.includes(:author)
   end
 
   def show
