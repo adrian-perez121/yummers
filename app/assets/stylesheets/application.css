@@ -65,15 +65,17 @@ a:hover, a:focus {
 
 .content {
   display: flex;
+  gap: 20px;
 }
 
 .nav-bar {
+  width: min(250px, 15vw);
   height: auto;
-  flex: 1;
   display: flex;
   flex-flow: column;
-  align-items: start;
+  align-items: center;
   gap: 30px;
+  border-right: solid #dfc71c 1px;
 }
 
 .nav-bar > *:first-child {
@@ -82,8 +84,8 @@ a:hover, a:focus {
 
 .nav-bar > * {
   font-size: larger;  /* Should be tmp */
-  padding: 5px 80px;
-  margin-left: 30px;
+  padding: 5px min(4vw, 80px);
+
 }
 
 .nav-bar > div:hover {
