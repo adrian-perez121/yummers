@@ -61,7 +61,8 @@
     </div>
 
     <div>
-      <%= image_tag('', class: "post-image", 'data-photo-preview-target' => 'imagePreview') %>
+      <%= image_tag( (post.image.attached? ? url_for(post.image) : ''),
+                     class: "post-image", 'data-photo-preview-target' => 'imagePreview') %>
     </div>
   </div>
 
