@@ -1,0 +1,10 @@
+<div class="scrollable post-form" data-controller="hidden">
+  <h1>Edit Your Post</h1>
+
+  <nav>
+    <button type="button" data-hidden-target="input" data-action="hidden#toggle" value="description">Description</button>
+    <button type="button" data-hidden-target="input" data-action="hidden#toggle" value="recipe">Recipe</button>
+  </nav>
+
+  <%= render 'posts/form', user: @user, post: @post %>
+</div>
