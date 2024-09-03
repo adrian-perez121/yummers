@@ -13,7 +13,9 @@ Rails.application.routes.draw do
   resources :users do
     resources :posts, only: [:new, :create, :edit, :update, :destroy, :show]
   end
+
   resources :posts, only: [:index]
+  resource :comments, only: [:create]
   resources :requests, only: [:create, :destroy]
   resources :followings, only: [:create, :destroy]
 
