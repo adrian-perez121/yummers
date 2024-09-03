@@ -4,13 +4,16 @@ class CommentsController < ApplicationController
 
   def create
     @post = Post.find(params[:comment][:post_id])
+    @user = @post.author
     @comment = Comment.new(comment_params)
 
-    if @comment.save
-      redirect_to user_post_path(@post.author, @post)
-    else
-      flash[:alert] = 'Comment was unable to process'
-      redirect_to user_post_path(@post.author, @post), status: :unprocessable_content
+    respond_to do |format|
+      if @comment.save
+        format.turbo_stream { render turbo_stream: turbo_stream.prepend('comments', @comment)}
+      else
+        flash.now['alert'] = 'Comment was unable to process'
+        format.html { redirect_to user_post_path(@user, @post) }
+      end
     end
   end
 

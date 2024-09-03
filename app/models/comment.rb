@@ -7,6 +7,8 @@ class Comment < ApplicationRecord
   belongs_to :author, class_name: 'User'
   has_many :comments
 
+  default_scope { order(created_at: :desc)}
+
   validates :body, :post_id, :author_id, presence: true
   validates :body, length: { in: @@min_length..@@max_length }
 end
