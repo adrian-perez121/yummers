@@ -4,7 +4,8 @@
   <h2>Comments:</h2>
 
   <%= turbo_frame_tag 'comment_form' do  %>
-    <%= form_with model: Comment.new, class: 'comment-form' do |f| %>
+    <%= form_with model: @comment || Comment.new, class: 'comment-form', data: { controller: 'clear-form',
+                                                                     action: "turbo:submit-end->clear-form#clear"} do |f| %>
       <%= f.hidden_field :author_id, value: @current_user.id %>
       <%= f.hidden_field :post_id, value: @post.id %>
       <div class="comment-text-area" data-controller="word-count"
@@ -12,11 +13,12 @@
            data-word-count-max-length-value="<%= Comment.max_length %>">
         <%= f.text_area :body, placeholder:'Add your comment here!',
                         'data-word-count-target' => 'textField',
-                        'data-action' => 'input->word-count#lengthOutput'%>
+                        'data-action' => 'input->word-count#lengthOutput',
+                        'data-clear-form-target' => 'field'%>
         <span data-word-count-target="characterOutput"></span>
       </div>
 
-      <%= f.submit 'Post',class:'post-button' %>
+      <%= f.submit 'Post', class:'post-button' %>
     <% end %>
   <% end %>
 

@@ -6,13 +6,16 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:comment][:post_id])
     @user = @post.author
     @comment = Comment.new(comment_params)
+    @current_user = current_user
+    @post_comments = @post.comments
 
     respond_to do |format|
       if @comment.save
         format.turbo_stream { render turbo_stream: turbo_stream.prepend('comments', @comment)}
       else
-        flash.now['alert'] = 'Comment was unable to process'
-        format.html { redirect_to user_post_path(@user, @post) }
+        flash[:comment_error] = 'Comment was unable to process'
+        format.html { render 'posts/show'}
+        # format.turbo_stream { render turbo_stream: turbo_stream.update('comment_body', @comment.body), status: :unprocessable_content}
       end
     end
   end
