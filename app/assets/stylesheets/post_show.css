@@ -5,34 +5,3 @@
   padding-bottom: 30px;
 }
 
-.comment-form {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  justify-content: space-around;
-  margin-bottom: 20px;
-}
-
-.comment-form .comment-text-area {
-  width: 80%;
-  height: clamp(20px, 8vh, 100px);
-}
-
-.comment-text-area span {
-  margin-left: 95%;
-}
-
-.comment-form textarea {
-  height: 100%;
-  width: 100%;
-  resize: none;
-  font-family: Poppins, sans-serif;
-  border: none;
-  border-radius: 20px;
-  padding: 10px 15px;
-  background-color: var(--field-background-color);
-}
-
-.comment-form textarea:hover, .comment-form textarea:focus {
-  background-color: var(--field-hover-focus-color);
-}

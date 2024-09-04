@@ -13,9 +13,7 @@ class CommentsController < ApplicationController
       if @comment.save
         format.turbo_stream { render turbo_stream: turbo_stream.prepend('comments', @comment)}
       else
-        flash[:comment_error] = 'Comment was unable to process'
         format.html { render 'posts/show'}
-        # format.turbo_stream { render turbo_stream: turbo_stream.update('comment_body', @comment.body), status: :unprocessable_content}
       end
     end
   end
