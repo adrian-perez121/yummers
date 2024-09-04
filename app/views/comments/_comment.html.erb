@@ -1,3 +1,7 @@
-<div>
-  <%= comment.body %>
+<div class="comment">
+  <%= image_tag url_for(comment.author.profile_photo), class: 'profile-photo' %>
+  <h4 class="user-link"><%= link_to comment.author.name, user_path(comment.author)%></h4>
+  <div class="body">
+    <%= comment.body %>
+  </div>
 </div>

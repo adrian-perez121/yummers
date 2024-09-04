@@ -1,3 +1,5 @@
 .post-and-comments {
+  box-sizing: border-box;
   height: 90vh;
+  padding-bottom: 30px;
 }

@@ -15,7 +15,7 @@
 
   <div id="comments">
     <% @post_comments.each do |comment| %>
-      <div><%=comment.body %></div>
+      <%= render comment %>
     <% end %>
   </div>
 </div>

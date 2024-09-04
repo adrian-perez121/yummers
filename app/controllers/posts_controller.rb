@@ -9,7 +9,7 @@ class PostsController < ApplicationController
     @user = User.find(params[:user_id])
     @post = Post.find(params[:id])
     @current_user = current_user
-    @post_comments = @post.comments
+    @post_comments = @post.comments.all.includes(:author)
   end
 
   def new
