@@ -1,5 +1,28 @@
 .post-and-comments {
   box-sizing: border-box;
   height: 90vh;
+  width: clamp(700px, 80vw, 1000px);
   padding-bottom: 30px;
+}
+
+.comment-form {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.comment-form textarea {
+  resize: none;
+  width: 80%;
+  height: clamp(20px, 8vh, 100px);
+  font-family: Poppins, sans-serif;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 15px;
+  background-color: var(--field-background-color);
+}
+
+.comment-form textarea:hover, .comment-form textarea:focus {
+  background-color: var(--field-hover-focus-color);
 }

@@ -1,13 +1,13 @@
 <div class="scrollable post-and-comments">
   <%= render 'posts/post', post: @post, user: @user, preview: false %>
 
+  <h2>Comments:</h2>
+
   <%= turbo_frame_tag 'comment_form' do  %>
-    <%= form_with model: Comment.new do |f| %>
+    <%= form_with model: Comment.new, class: 'comment-form' do |f| %>
       <%= f.hidden_field :author_id, value: @current_user.id %>
       <%= f.hidden_field :post_id, value: @post.id %>
-      <div class="field">
-        <%= f.text_area :body, placeholder:'Add your comment here!' %>
-      </div>
+      <%= f.text_area :body, placeholder:'Add your comment here!' %>
 
       <%= f.submit 'Post',class:'post-button' %>
     <% end %>

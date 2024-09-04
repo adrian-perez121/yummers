@@ -3,7 +3,7 @@
   flex-direction: column;
   gap: 15px;
   width: clamp(700px, 70vw,900px);
-  height: max(600px, 85vh);
+  height: auto;
 }
 
 .post-header {
