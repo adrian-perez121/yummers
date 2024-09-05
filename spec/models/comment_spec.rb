@@ -36,7 +36,10 @@ RSpec.describe Comment, type: :model do
     it 'is not valid bodies that are too small or too big' do
       comment1 = Comment.new(author_id: @user.id, post_id: @post.id, body: '1' )
       comment2 = Comment.new(author_id: @user.id, post_id: @post.id,
-                             body: 'kafepijfiapjekafepijfiapjekafepijfiapjekafepijfiapjekafepijfiapjekafepijfiapjekafepijfiapjekafepijfiapjekafepijfiapjekafepijfiapjekafepijfiapjekafepijfiapjekafepijfiapjekafepijfiapjekafepijfiapjekafepijfiapjekafepijfiapje' )
+                             body: 'kafepijfiapjekafepijfiapjekafepijfiapjekafepijfiapjekafepijfiapjekafepijfiapjekafepijfiapj
+                                    ekafepijfiapjekafepijfiapjekafepijfiapjekafepijfiapjekafepijfiapjekafepijfiapjekafepijfiapjekafepijfiapjekafepijf
+                                    iapjekafepijfiapje fiapjekafepijfiapjekafepijfiapjekafepijfiapjekafepijfiapjekafepijfiapjekafepijfiapjekafepijfia
+                                     pjekafepijfiapjekafepijfiapjekafepijfiapjekafepijfiapje' )
       [comment1, comment2].each { |comment| expect(comment).not_to be_valid }
     end
   end
