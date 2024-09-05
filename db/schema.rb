@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_04_164156) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_05_201928) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -75,8 +75,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_04_164156) do
     t.string "description"
     t.integer "author_id"
     t.string "recipe"
-    t.integer "likes", default: 0
-    t.integer "dislikes", default: 0
+    t.integer "like_counter", default: 0
+    t.integer "dislike_counter", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
