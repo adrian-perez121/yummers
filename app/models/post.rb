@@ -3,7 +3,7 @@ class Post < ApplicationRecord
   @@max_length = 500
 
   belongs_to :author, class_name: 'User'
-  has_many :likes
+  has_many :likes, as: :likeable
   has_many :comments
   has_one_attached :image
 
