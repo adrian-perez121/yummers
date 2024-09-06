@@ -134,6 +134,46 @@
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {display: block;}
 
+.footer {
+  display: flex;
+}
+
+.user-interact {
+  box-sizing: border-box;
+  width: fit-content;
+  background-color: var(--field-background-color);
+  display: flex;
+  padding: 5px 8px;
+  border-radius: 10px;
+}
+
+#like-button, #dislike-button {
+  background-color: inherit;
+  border: none;
+}
+
+#like-button { padding-left: 10px; }
+#dislike-button { padding-right: 10px }
+
+#like-button:hover {
+  background-color: var(--field-hover-focus-color);
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+#dislike-button:hover {
+  background-color: var(--field-hover-focus-color);
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+}
 
 
+#like-button:active, #dislike-button:active {
+  background-color: inherit;
+}
+
+#like-button.activated svg {
+  fill: green !important;
+}
+#dislike-button .activated { fill: red }
 

@@ -41,6 +41,10 @@ button {
   outline: none;
 }
 
+svg {
+  fill: black;
+}
+
 ul {
   list-style: none;
 }
