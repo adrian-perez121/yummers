@@ -1,6 +1,6 @@
 <%= turbo_frame_tag "like-form-#{likeable.class.name}-#{likeable.id}" do  %>
   <div style="display: flex">
-    <div id="likes-counter">
+    <div id=<%= "like-counter-#{likeable.class.name}-#{likeable.id}" %>>
       <%= likeable.like_counter %>
     </div>
     <%= form_with url: likes_path, method: :post do %>
