@@ -12,6 +12,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @current_user = current_user
     @like = Like.find_by(user: @current_user, likeable: @post)
+    @dislike = Dislike.find_by(user: @current_user, dislikeable: @post)
     @post_comments = @post.comments.all.includes(:author)
   end
 
