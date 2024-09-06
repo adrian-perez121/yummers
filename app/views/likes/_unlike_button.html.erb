@@ -1,7 +1,7 @@
 <%= turbo_frame_tag 'like-form' do  %>
   <div style="display: flex">
     <div>
-      <%= post.like_counter %>
+      <%= likeable.like_counter %>
     </div>
     <%= form_with url: like_path(like), method: :delete do %>
       <button type="submit" id="like-button" class="activated">

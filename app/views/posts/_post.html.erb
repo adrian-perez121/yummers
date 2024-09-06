@@ -65,9 +65,9 @@
     <div style="display: flex">
       <div class="user-interact">
         <% if like %>
-          <%= render 'likes/unlike_button', like: like, post: post %>
+          <%= render 'likes/unlike_button', like: like, likeable: post %>
         <% else %>
-          <%= render 'likes/like_button', post: post%>
+          <%= render 'likes/like_button', likeable: post%>
         <% end %>
         <button type="submit" id="dislike-button" value="idk">
           <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
