@@ -6,6 +6,7 @@ class Comment < ApplicationRecord
   belongs_to :comment, optional: true
   belongs_to :author, class_name: 'User'
   has_many :likes, as: :likeable
+  has_many :dislikes, as: :dislikeable
   has_many :comments
 
   default_scope { order(created_at: :desc)}

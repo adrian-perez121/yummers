@@ -4,6 +4,7 @@ class Post < ApplicationRecord
 
   belongs_to :author, class_name: 'User'
   has_many :likes, as: :likeable
+  has_many :dislikes, as: :dislikeable
   has_many :comments
   has_one_attached :image
 

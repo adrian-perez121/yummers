@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_06_175009) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_06_223147) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -53,6 +53,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_06_175009) do
     t.integer "dislike_counter", default: 0
     t.index ["comment_id"], name: "index_comments_on_comment_id"
     t.index ["post_id"], name: "index_comments_on_post_id"
+  end
+
+  create_table "dislikes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "dislikeable_type", null: false
+    t.bigint "dislikeable_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dislikeable_type", "dislikeable_id"], name: "index_dislikes_on_dislikeable"
+    t.index ["user_id"], name: "index_dislikes_on_user_id"
   end
 
   create_table "followings", force: :cascade do |t|
@@ -110,5 +120,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_06_175009) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "comments"
   add_foreign_key "comments", "posts"
+  add_foreign_key "dislikes", "users"
   add_foreign_key "likes", "users"
 end
