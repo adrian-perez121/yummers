@@ -1,4 +1,4 @@
-<%= turbo_frame_tag 'like-form' do  %>
+<%= turbo_frame_tag "like-form-#{likeable.class.name}-#{likeable.id}" do  %>
   <div style="display: flex">
     <div>
       <%= likeable.like_counter %>
