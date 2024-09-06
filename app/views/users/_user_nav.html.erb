@@ -65,7 +65,7 @@
     <h2>Posts</h2>
     <% posts.each do |post| %>
          <div class="preview">
-           <%= render post, user: user, preview: true %>
+           <%= render post, user: user, like: likes[post.id]&.first, preview: true %>
          </div>
     <% end %>
   </div>

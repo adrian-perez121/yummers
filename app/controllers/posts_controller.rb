@@ -3,6 +3,8 @@ class PostsController < ApplicationController
   before_action :validate_user, only: [:new, :create, :edit, :update]
   def index
     @posts = Post.all.includes(:author)
+    @current_user = current_user
+    @likes = Like.where(likeable: @posts, user: @current_user).group_by(&:likeable_id)
   end
 
   def show
