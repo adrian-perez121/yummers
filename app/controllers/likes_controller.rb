@@ -3,6 +3,9 @@ class LikesController < ApplicationController
 
   def create
     @like = Like.new(like_params)
+    @likeable = @like.likeable
+    @likeable.like_counter += 1
+    @likeable.save!
     @like.save!
 
     render turbo_stream: turbo_stream.replace('like-form',
@@ -13,6 +16,8 @@ class LikesController < ApplicationController
   def destroy
     @like = Like.find(params[:id])
     @likeable = @like.likeable
+    @likeable.like_counter -= 1
+    @likeable.save!
     @like.destroy!
 
     render turbo_stream: turbo_stream.replace('like-form',

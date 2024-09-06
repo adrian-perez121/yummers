@@ -19,5 +19,7 @@ RSpec.describe Like, type: :model do
       expect(like1).to be_valid
       expect(like2).to be_valid
     end
+
+
   end
 end
