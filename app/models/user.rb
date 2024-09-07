@@ -33,6 +33,14 @@ class User < ApplicationRecord
     "#{self.first_name} #{self.last_name}"
   end
 
+  def liked?(likeable)
+    Like.where(user: self, likeable: likeable).exists?
+  end
+
+  def disliked?(dislikeable)
+    Dislike.where(user: self, dislikeable: dislikeable).exists?
+  end
+
   def self.from_google(u)
     create_with(uid: u[:uid], first_name: u[:first_name], last_name: u[:last_name], provider: 'google',
                 password: Devise.friendly_token[0, 20]).find_or_create_by!(email: u[:email])
