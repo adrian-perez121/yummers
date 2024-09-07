@@ -8,9 +8,8 @@ class LikesController < ApplicationController
     @likeable.save!
     @like.save!
 
-    render turbo_stream: turbo_stream.replace(like_target(@likeable),
-                                              partial: 'likes/unlike_button',
-                                              locals: { like: @like, likeable: @like.likeable})
+    # You can't like and dislike something at the same time
+    remove_dislike if @like.user.disliked?(@likeable)
   end
 
   def destroy
@@ -20,18 +19,16 @@ class LikesController < ApplicationController
     @likeable.save!
     @like.destroy!
 
-    render turbo_stream: turbo_stream.replace(like_target(@likeable),
-                                              partial: 'likes/like_button',
-                                              locals: { likeable: @likeable})
   end
 
   private
 
+  def remove_dislike
+    Dislike.destroy_by(user: @like.user, dislikeable: @likeable)
+    @likeable.dislike_counter -= 1
+    @likeable.save!
+  end
   def like_params
     params.require(:like).permit(:user_id, :likeable_type, :likeable_id)
-  end
-
-  def like_target(likeable)
-    "like-form-#{likeable.class.name}-#{likeable.id}"
   end
 end

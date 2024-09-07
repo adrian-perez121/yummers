@@ -1,0 +1,7 @@
+<%= turbo_stream.replace("like-form-#{@likeable.class.name}-#{@likeable.id}",
+                         partial: 'likes/unlike_button',
+                         locals: { like: @like, likeable: @likeable}) %>
+<!--The dislike counter should have the same post id and class name-->
+<%= turbo_stream.replace("dislike-form-#{@likeable.class.name}-#{@likeable.id}",
+                         partial: 'dislikes/dislike_button',
+                         locals: { dislikeable: @likeable})%>
