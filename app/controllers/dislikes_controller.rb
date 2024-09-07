@@ -8,9 +8,7 @@ class DislikesController < ApplicationController
     @dislikeable.save!
     @dislike.save!
 
-    render turbo_stream: turbo_stream.replace(dislike_target(@dislikeable),
-                                              partial: 'dislikes/undislike_button',
-                                              locals: { dislike: @dislike, dislikeable: @dislikeable})
+    remove_like  if @dislike.user.liked?(@dislikeable)
   end
 
   def destroy
@@ -19,19 +17,17 @@ class DislikesController < ApplicationController
     @dislikeable.dislike_counter -= 1
     @dislikeable.save!
     @dislike.destroy!
-
-    render turbo_stream: turbo_stream.replace(dislike_target(@dislikeable),
-                                              partial: 'dislikes/dislike_button',
-                                              locals: { dislikeable: @dislikeable})
   end
 
   private
 
-  def dislike_params
-    params.require(:dislike).permit(:user_id, :dislikeable_type, :dislikeable_id)
+  def remove_like
+    Like.destroy_by(user: @dislike.user, likeable: @dislikeable)
+    @dislikeable.like_counter -= 1
+    @dislikeable.save!
   end
 
-  def dislike_target(dislikeable)
-    "dislike-form-#{dislikeable.class.name}-#{dislikeable.id}"
+  def dislike_params
+    params.require(:dislike).permit(:user_id, :dislikeable_type, :dislikeable_id)
   end
 end

@@ -1,0 +1,3 @@
+<%=  turbo_stream.replace("dislike-form-#{@dislikeable.class.name}-#{@dislikeable.id}",
+                          partial: 'dislikes/dislike_button',
+                          locals: { dislikeable: @dislikeable}) %>
