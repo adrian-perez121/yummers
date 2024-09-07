@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     retrieve_followers_and_requests
     @posts = @user.posts
     @likes = Like.where(likeable: @posts, user: current_user).group_by(&:likeable_id)
+    @dislikes = Dislike.where(dislikeable: @posts, user: current_user).group_by(&:dislikeable_id)
     @searched_users = search_users
   end
 

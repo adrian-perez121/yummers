@@ -5,6 +5,7 @@ class PostsController < ApplicationController
     @posts = Post.all.includes(:author)
     @current_user = current_user
     @likes = Like.where(likeable: @posts, user: @current_user).group_by(&:likeable_id)
+    @dislikes = Dislike.where(dislikeable: @posts, user: @current_user).group_by(&:dislikeable_id)
   end
 
   def show
