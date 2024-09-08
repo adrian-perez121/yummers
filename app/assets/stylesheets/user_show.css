@@ -1,5 +1,6 @@
 .user-page {
   max-height: 90vh; /* Set the maximum height */
+  box-sizing: border-box;
   padding: 0 10px;
   width: clamp(700px, 75vw, 900px);
 }

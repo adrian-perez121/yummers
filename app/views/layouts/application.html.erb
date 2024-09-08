@@ -23,9 +23,11 @@
       <div class="user-views">
         <%= yield %>
       </div>
-    </div>
+      <%= render 'users/user_search' %>
     <% else %>
       <%= yield %>
     <% end %>
+    </div>
+
   </body>
 </html>

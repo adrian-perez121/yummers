@@ -1,6 +1,13 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+    @searched_users = search_users
+    render turbo_stream: turbo_stream.replace('user-search',
+                                              partial: 'users/user_search',
+                                              locals: { search_users: @searched_users})
+  end
+
   def show
     @user = User.find(params[:id])
     retrieve_followers_and_requests
