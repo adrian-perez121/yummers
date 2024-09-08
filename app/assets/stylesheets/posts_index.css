@@ -1,5 +1,5 @@
 .posts-index {
-  width: 65vw;
+  width: clamp(700px, 75vw, 900px);
   height: max(500px, 90vh);
   display: flex;
   flex-flow: column;

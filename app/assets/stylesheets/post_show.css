@@ -1,7 +1,7 @@
 .post-and-comments {
   box-sizing: border-box;
   height: 90vh;
-  width: clamp(700px, 80vw, 1000px);
+  width: clamp(700px, 75vw, 900px);
   padding-bottom: 30px;
 }
 
