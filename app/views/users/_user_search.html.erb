@@ -1,14 +1,14 @@
 <%= turbo_frame_tag 'user-search' do  %>
-  <div class="user-search">
+  <div class="scrollable user-search">
     <h2>Search Users</h2>
     <%= form_with url: users_path, method: :get do |f|%>
       <div class="field">
-        <%= f.label :user_first %>
+        <%= f.label :user_first, 'First Name:' %>
         <%= f.text_field :user_first, value: params[:user_first]%>
       </div>
 
       <div class="field">
-        <%=f.label :user_last %>
+        <%=f.label :user_last, 'Last Name:' %>
         <%= f.text_field :user_last, value: params[:user_last] %>
       </div>
 

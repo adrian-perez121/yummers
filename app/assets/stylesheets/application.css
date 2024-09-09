@@ -151,9 +151,7 @@ input[type=file]::file-selector-button:hover, input[type=file]::file-selector-bu
   background-color: var(--field-hover-focus-color);
 }
 
-.user-search {
-  flex: 1;
-}
+
 
 
 
