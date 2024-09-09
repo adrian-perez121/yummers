@@ -36,4 +36,11 @@
   gap: 15px;
 }
 
+.request-box input[type="submit"] {
+  border: none;
+  color: white;
+  background-color: var(--upload-color);
+  border-radius: 5px;
+}
+
 

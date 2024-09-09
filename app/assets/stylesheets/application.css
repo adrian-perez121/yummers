@@ -24,6 +24,7 @@
   --field-background-color: #f6f1df;
   --field-hover-focus-color: #f3e9d5;
   --upload-color: #4056A1;
+  --upload-faded-color: rgba(64, 86, 161, 0.81);
 }
 
 body {
