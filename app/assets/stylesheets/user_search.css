@@ -33,3 +33,7 @@
   background-color: var(--upload-color);
   color: white;
 }
+
+.user-search input[type="submit"]:hover, .user-search input[type="submit"]:focus {
+  background-color: rgba(64, 86, 161, 0.81);
+}

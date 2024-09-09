@@ -151,7 +151,9 @@ input[type=file]::file-selector-button:hover, input[type=file]::file-selector-bu
   background-color: var(--field-hover-focus-color);
 }
 
-
+* {
+  scrollbar-color: rgba(197, 203, 227, 0.47) var(--field-background-color);
+}
 
 
 
