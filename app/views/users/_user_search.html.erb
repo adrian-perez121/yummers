@@ -4,12 +4,12 @@
     <%= form_with url: users_path, method: :get do |f|%>
       <div class="field">
         <%= f.label :user_first, 'First Name:' %>
-        <%= f.text_field :user_first, value: params[:user_first]%>
+        <%= f.text_field :user_first, value: params[:user_first], autocomplete: 'off'%>
       </div>
 
       <div class="field">
         <%=f.label :user_last, 'Last Name:' %>
-        <%= f.text_field :user_last, value: params[:user_last] %>
+        <%= f.text_field :user_last, value: params[:user_last], autocomplete: 'off' %>
       </div>
 
       <div class="actions">
