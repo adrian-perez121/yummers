@@ -5,9 +5,9 @@ class Comment < ApplicationRecord
   belongs_to :post
   belongs_to :comment, optional: true
   belongs_to :author, class_name: 'User'
-  has_many :likes, as: :likeable
-  has_many :dislikes, as: :dislikeable
-  has_many :comments
+  has_many :likes, as: :likeable, dependent: :destroy
+  has_many :dislikes, as: :dislikeable, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   default_scope { order(created_at: :desc)}
 
