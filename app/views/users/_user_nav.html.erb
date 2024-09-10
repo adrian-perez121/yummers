@@ -1,48 +1,52 @@
 <div class="user-nav" data-controller="hidden" data-hidden-change-class="hidden">
   <div class="buttons">
-    <button type="button" data-hidden-target="input" value="sent-requests" data-action="hidden#toggle">Sent Requests</button>
-    <button type="button" data-hidden-target="input" value="follow-requests" data-action="hidden#toggle">Follow Requests</button>
+    <% if current_user == user %>
+      <button type="button" data-hidden-target="input" value="sent-requests" data-action="hidden#toggle">Sent Requests</button>
+      <button type="button" data-hidden-target="input" value="follow-requests" data-action="hidden#toggle">Follow Requests</button>
+    <% end %>
     <button type="button" data-hidden-target="input" value="followers" data-action="hidden#toggle">Followers</button>
     <button type="button" data-hidden-target="input" value="following" data-action="hidden#toggle">Following</button>
     <button type="button" data-hidden-target="input" value="posts" data-action="hidden#toggle" class="selected">Posts</button>
   </div>
 
-
-  <div id="sent-requests" class="hidden" data-hidden-target="field">
-    <h2>Sent Requests</h2>
-    <% sent_requests.each do |request| %>
-      <div>
-        <%= request.requested.first_name %>
-        <% if current_user == user %>
-          <%= link_to 'Cancel', request_path(request.id, user_id: user.id), data: { turbo_method: :delete } %>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
-
-  <div id="follow-requests" class="hidden" data-hidden-target="field">
-    <h2>Follow Requests</h2>
-
-    <% follow_requests.each do |request| %>
-      <div>
-        <%= request.requester.first_name %>
-        <% if current_user == user %>
-          <%= form_with model: Following do |f| %>
-            <%= hidden_field_tag 'request[id]', request.id %>
-            <%= f.hidden_field :followee_id, value: user.id %>
-            <%= f.hidden_field :follower_id, value: request.requester.id %>
-            <%= button_tag 'Accept', type: 'submit'%>
+  <% if current_user == user %>
+    <div id="sent-requests" class="hidden" data-hidden-target="field">
+      <h2>Sent Requests</h2>
+      <% sent_requests.each do |request| %>
+        <div>
+          <%= link_to request.requested.first_name, request.requested %>
+          <% if current_user == user %>
+            <%= link_to 'Cancel', request_path(request.id, user_id: user.id), data: { turbo_method: :delete } %>
           <% end %>
-          <%= button_to 'Reject', request_path(request.id, user_id: user.id), method: :delete, class: 'reject-request' %>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
+        </div>
+      <% end %>
+    </div>
+
+    <div id="follow-requests" class="hidden" data-hidden-target="field">
+      <h2>Follow Requests</h2>
+
+      <% follow_requests.each do |request| %>
+        <div>
+          <%= link_to request.requester.first_name, request.requester%>
+          <% if current_user == user %>
+            <%= form_with model: Following do |f| %>
+              <%= hidden_field_tag 'request[id]', request.id %>
+              <%= f.hidden_field :followee_id, value: user.id %>
+              <%= f.hidden_field :follower_id, value: request.requester.id %>
+              <%= button_tag 'Accept', type: 'submit'%>
+            <% end %>
+            <%= button_to 'Reject', request_path(request.id, user_id: user.id), method: :delete, class: 'reject-request' %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
 
   <div id="followers" class="hidden" data-hidden-target="field">
     <h2>Followers</h2>
     <% followers.each do |follow| %>
-      <div><%= follow.follower.first_name %>
+      <div><%= link_to follow.follower.first_name, follow.follower %>
         <% if current_user == user %>
           <%= link_to 'Remove', following_path(follow, user_id: user.id), data: { turbo_method: :delete } %></div>
         <% end %>
@@ -53,7 +57,7 @@
     <h2>Following</h2>
     <% following.each do |follow| %>
           <div>
-            <%= follow.followee.first_name %>
+            <%= link_to follow.followee.first_name, follow.followee %>
             <% if current_user == user %>
             <%= link_to 'Unfollow', following_path(follow, user_id: user.id), data: { turbo_method: :delete } %>
             <% end %>
