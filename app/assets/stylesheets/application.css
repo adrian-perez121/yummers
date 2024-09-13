@@ -99,7 +99,7 @@ a:hover, a:focus {
 }
 
 .user-views {
-  flex: 3;
+  width: clamp(700px, 75vw, 900px);;
 }
 
 .scrollable {

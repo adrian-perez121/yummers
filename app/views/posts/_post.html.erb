@@ -39,24 +39,24 @@
       <a class="link-to-show" href=<%= user_post_path(user, post) %>>
         <div id="description" data-hidden-target="field">
           <h3>Description</h3>
-          <p><%= post.description %></p>
+          <%= simple_format post.description %>
         </div>
 
       <div id="recipe" class="hidden" data-hidden-target="field">
         <h3>Recipe</h3>
-        <%= post.recipe %>
+        <%= simple_format post.recipe %>
       </div>
       </a>
 
     <% else %>
       <div id="description" data-hidden-target="field">
         <h3>Description</h3>
-        <p><%= post.description %></p>
+        <p><%= simple_format post.description %></p>
       </div>
 
       <div id="recipe" class="hidden" data-hidden-target="field">
         <h3>Recipe</h3>
-        <%= post.recipe %>
+        <%= simple_format post.recipe %>
       </div>
     <% end %>
   </div>
