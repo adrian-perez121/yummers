@@ -4,25 +4,18 @@ ul {
 
 .post-form {
   height: 80vh;
-  width: 75vw;
+  width: clamp(700px, 75vw, 900px);
   overflow-x: hidden;
 }
 
 .post-form .field {
-  width: 600px;
+  width: 90%;
   display: flex;
   flex-flow: column;
 }
 
 .post-form label {
   font-size: x-large;
-}
-
-.post-form form {
-  display: flex;
-  flex-direction: column;
-  width: clamp(30vh, 700px, 90vh);
-  gap: 30px;
 }
 
 .post-form textarea {
@@ -70,13 +63,13 @@ ul {
 
 .post-form form {
   display: grid;
-  grid-template-columns: 1fr 1fr ;
+  grid-template-columns: 2fr 1fr ;
 }
 
 .image-select {
+  justify-self: center;
   grid-column-start: 2;
   grid-column-end: 3 ;
-  width: 100%;
 }
 
 .post-form .post-image {
