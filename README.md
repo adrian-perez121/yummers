@@ -30,6 +30,10 @@ reaching the limit. School is going to be starting soon and there is still so mu
 + ### Mailer
   This is one those features that I haven't implement yet because I have been busy with other features. Also I have
   found that trying to deploy a mailer with no budget is a major pain.
++ ### Handling Large Amounts of Posts
+  Something I recognize as a potential problem for future is handling multiple posts. If this website were to get
+  thousands of people and thousands of pictures. How would loading be handled? This is something I will have research on
+  my own when the time comes.
 + ### Misc
   This is more a check list of small things I need to do that. For example, being able to delete comments from a post
   and also like a comment(the back end stuff is there).
