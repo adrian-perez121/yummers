@@ -8,7 +8,7 @@
       </button>
       <div class="dropdown-content">
         <%= (link_to 'Delete', user_post_path(user, post), data: { turbo_method: :delete}) if current_user == user%>
-        <%= link_to 'Edit', edit_user_post_path(user, post) %>
+        <%= link_to 'Edit', edit_user_post_path(user, post) if current_user == user %>
       </div>
     </div>
   </div>
