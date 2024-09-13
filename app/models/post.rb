@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
   @@min_length = 10
-  @@max_length = 500
+  @@max_length = 1000
 
   belongs_to :author, class_name: 'User'
   has_many :likes, as: :likeable, dependent: :destroy
