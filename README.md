@@ -17,34 +17,34 @@ I did most of the CSS myself. Yes there are many incredibly helpful frameworks o
 I want to make sure I know the core of what CSS truly is. I believe this project has greatly contributed to that goal.
 I am proud to say that I was able to integrate Turbo Drive in several parts of the app like when a user is making a comment
 or searching for users. If I'm going to be honest, I really didn't know how to use Turbo Drive at first, although
-there is still so much more to learn I am grateful it was implement somewhere in the app. Stimulus is also something I
+there is still so much more to learn I am grateful it was implemented somewhere in the app. Stimulus is also something I
 got a better grip of while creating this project. I was able to reuse my controllers in various places of the app. My
 favorite controller is one that shows the word count of an input field when the character count is too low or
-reaching the limit. School is going to be starting soon and there is still so much more I want to add.
+reaches the limit. School is going to be starting soon and there is still so much more I want to add.
 
 ## Roadmap
 
 + ### Deployement
   There is one major thing missing from the app os of now and that's deployment. I would
-  love to have the webiste up and running. At least for a while. The main roadblock holding me
+  love to have the website up and running. At least for a while. The main roadblock holding me
   back is cost. Render databases are free for a while before they delete themselves and I would also need
-  a storage provider for images. However, self hosting the server seems like a more a better option...who knows.
+  a storage provider for images. However, self-hosting the server seems like a more better option...who knows.
 + ### Messaging
   I would like to get messages working at some point. Before I started I did a bunch of readings on websockets
   and I would hate for that knowledge to go to waste.
 + ### Mailer
-  This is one those features that I haven't implement yet because I have been busy with other features. Also I have
+  This is one of those features that I haven't implemented yet because I have been busy with other features. Also, I have
   found that trying to deploy a mailer with no budget is a major pain.
 + ### Handling Large Amounts of Posts
-  Something I recognize as a potential problem for future is handling multiple posts. If this website were to get
-  thousands of people and thousands of pictures. How would loading be handled? This is something I will have research on
+  Something I recognize as a potential problem for the future is handling multiple posts. If this website were to get
+  thousands of people and thousands of pictures. How would loading be handled? This is something I will have to research on
   my own when the time comes.
 + ### Misc
-  This is more a check list of small things I need to do that. For example, being able to delete comments from a post
-  and also like a comment(the back end stuff is there).
+  This is more of a checklist of small things I need to do. For example, being able to delete comments from a post
+  and also like a comment(the back-end stuff is there).
 
 
 ## Some Thanks
 
 I appreciate the creators of the Devise and Google OmniAuth gems. These Gems proved to be immensely valuable. They deserve
-every Github star they and more.
+every Github star they have and more.
