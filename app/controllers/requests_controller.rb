@@ -9,7 +9,7 @@ class RequestsController < ApplicationController
   def destroy
     @request = Request.find(params[:id])
     @user = User.find(params[:user_id])
-    @urequest.destroy!
+    @request.destroy!
 
     redirect_to @user
   end
