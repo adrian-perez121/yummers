@@ -4,6 +4,8 @@ Yummers is meant to be a food themed social media app where users are supposed
 to post their food along with a description of what they made and the recipe behind
 their creation. Other users are able to like or dislike posts along with comment on the posts for any feedback.
 
+![C0839D23-B3C9-4CE0-9A30-36971C1B4640_1_206_a](https://github.com/user-attachments/assets/d20cae8c-94e7-4abe-b782-a6625bdd3bf7)
+
 
 ## Where I am
 
