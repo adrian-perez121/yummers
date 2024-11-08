@@ -16,7 +16,6 @@ RSpec.describe Chat, type: :model do
       chat = Chat.new(chatter_1_id: @u1.id, chatter_2_id: @u2.id)
       expect(chat.chatter_1).to eq(@u1)
       expect(chat.chatter_2).to eq(@u2)
-
     end
   end
 end

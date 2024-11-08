@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_11_08_024250) do
+ActiveRecord::Schema[7.1].define(version: 2024_11_08_032102) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -90,6 +90,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_08_024250) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.bigint "chat_id", null: false
+    t.string "message"
+    t.integer "sender_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chat_id"], name: "index_messages_on_chat_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "description"
     t.integer "author_id"
@@ -129,4 +138,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_08_024250) do
   add_foreign_key "comments", "posts"
   add_foreign_key "dislikes", "users"
   add_foreign_key "likes", "users"
+  add_foreign_key "messages", "chats"
 end
