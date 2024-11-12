@@ -1,0 +1,7 @@
+<h2>Here we have all the chats (for now)</h2>
+
+<% @chats.each do |chat|  %>
+  <div>
+    <%= link_to "Chat", chat_path(chat), data: { turbo: false } %>
+  </div>
+<% end %>

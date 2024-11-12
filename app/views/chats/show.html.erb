@@ -1,0 +1,6 @@
+<h1>Chat between <%= @chat.chatter_1.name %> and <%= @chat.chatter_2.name %></h1>
+<%= content_tag(:div, "", data: {
+  controller: "chat",
+  turbo: false,
+  chat_id: @chat.id
+}) %>
