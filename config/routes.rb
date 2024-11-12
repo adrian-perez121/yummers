@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   resources :requests, only: [:create, :destroy]
   resources :followings, only: [:create, :destroy]
 
+  resources :chats
+
 
   # Defines the root path route ("/")
   root "posts#index"
