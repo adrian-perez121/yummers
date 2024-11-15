@@ -3,4 +3,14 @@
   controller: "chat",
   turbo: false,
   chat_id: @chat.id
-}) %>
+})
+%>
+
+
+<div class="messages">
+<% @chat.messages.each do |msg| %>
+    <div class="message <%= msg.sender == @current_user ? "left" : "right" %>">
+      <%= msg.message %>
+    </div>
+  <% end %>
+</div>

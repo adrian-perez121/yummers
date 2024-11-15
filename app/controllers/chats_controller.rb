@@ -5,6 +5,7 @@ class ChatsController < ApplicationController
   end
 
   def show
+    @current_user = current_user
     @chat = Chat.find(params[:id])
   end
 end

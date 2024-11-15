@@ -1,0 +1,38 @@
+.messages {
+  box-sizing: border-box;
+  background: var(--field-background-color);
+  height: 80%;
+  width: 100%;
+  border-radius: 50px;
+  padding: 20px 20px;
+
+
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 20px;
+}
+
+
+/* Thank you to the CSS user who I got this from */
+.message {
+  --r: 2em;  /* the radius */
+  --t: 0.5em; /* the size of the tail */
+  max-width: 300px;
+  padding: 1em;
+  border-inline: var(--t) solid #0000;
+  border-radius: calc(var(--r) + var(--t))/var(--r);
+  background: #ba8d66;
+  color: #fff;
+}
+.left {
+  --_p: 0;
+  border-bottom-left-radius: 0 0;
+  place-self: start;
+}
+.right {
+  --_p: 100%;
+  border-bottom-right-radius: 0 0;
+  place-self: end;
+}

@@ -2,6 +2,6 @@
 
 <% @chats.each do |chat|  %>
   <div>
-    <%= link_to "Chat", chat_path(chat), data: { turbo: false } %>
+    <%= link_to "Chat between #{chat.chatter_1.name} and #{chat.chatter_2.name}", chat_path(chat), data: { turbo: false } %>
   </div>
 <% end %>
