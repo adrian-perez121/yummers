@@ -1,14 +1,8 @@
 <h1>Chat between <%= @chat.chatter_1.name %> and <%= @chat.chatter_2.name %></h1>
-<%= content_tag(:div, "", data: {
-  controller: "chat",
-  turbo: false,
-  chat_id: @chat.id
-})
-%>
 
 
 <div class="messages-view">
-  <div class="messages" data-controller="scroll">
+  <div class="messages" data-controller="scroll chat" data-turbo="false" data-chat-id="<%=@chat.id%>">
     <% @chat.messages.each do |msg| %>
       <div class="message <%= msg.sender == @current_user ? "right" : "left" %>">
         <%= msg.message %>
