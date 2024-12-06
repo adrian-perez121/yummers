@@ -6,6 +6,8 @@ export default class extends Controller {
   connect() {
     let chatId = this.element.dataset.chatId
     this.sub = this.createActionCableChannel(chatId);
+    const other = this.application.getControllerForElementAndIdentifier(this.element, 'scroll')
+    this.sub.controller = other
   }
 
   disconnect() {
@@ -32,12 +34,12 @@ export default class extends Controller {
 
         if (data.message) {
           this.append_message(data.message)
+          this.controller.scrollToBottom()
         }
       },
 
       // Function to add a message when it is sent in action cable
       append_message(message) {
-        console.log(message)
         let chat_box = document.querySelector(`[data-chat-id="${message.chat_id}"]`)
         let message_bubble = document.createElement("div")
         message_bubble.classList.add("message")
