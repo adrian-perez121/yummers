@@ -1,6 +1,8 @@
 class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
+    @chat = @message.chat
+    ChatChannel.broadcast_to @chat, {message:  @message}
 
     @message.save! # I want this to break if the message doesn't save
     redirect_to @message.chat # Temporary, this should have websockets instead
