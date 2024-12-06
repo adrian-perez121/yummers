@@ -7,10 +7,18 @@
 %>
 
 
-<div class="messages">
-<% @chat.messages.each do |msg| %>
-    <div class="message <%= msg.sender == @current_user ? "left" : "right" %>">
-      <%= msg.message %>
-    </div>
+<div class="messages-view">
+  <div class="messages" data-controller="scroll">
+    <% @chat.messages.each do |msg| %>
+      <div class="message <%= msg.sender == @current_user ? "right" : "left" %>">
+        <%= msg.message %>
+      </div>
+    <% end %>
+  </div>
+
+  <%= form_with model: Message.new , class: "send-message" do |f| %>
+    <%= f.hidden_field :chat_id, value: @chat.id %>
+    <%= f.hidden_field :sender_id, value: @current_user.id %>
+    <%= f.text_field :message, placeholder: "Send a new message" %>
   <% end %>
 </div>

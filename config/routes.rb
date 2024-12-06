@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   resources :followings, only: [:create, :destroy]
 
   resources :chats
+  resources :messages, only: [:create]
 
 
   # Defines the root path route ("/")

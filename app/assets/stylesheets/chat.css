@@ -1,9 +1,16 @@
+.messages-view {
+  background: var(--field-background-color);
+  border-radius: 50px;
+  max-height: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
 .messages {
   box-sizing: border-box;
-  background: var(--field-background-color);
-  height: 80%;
+  height: 70vh;
+
   width: 100%;
-  border-radius: 50px;
   padding: 20px 20px;
 
 
@@ -12,6 +19,8 @@
   flex-direction: column;
   gap: 20px;
   font-size: 20px;
+
+  overflow-y: scroll;
 }
 
 
@@ -36,3 +45,25 @@
   border-bottom-right-radius: 0 0;
   place-self: end;
 }
+
+.send-message {
+  place-self: center;
+  width: 90%;
+}
+
+.send-message input {
+  appearance: none;
+  background: var(--field-background-color);
+  width: inherit;
+  height: 3em;
+  font-size: inherit;
+  border: solid #ba8d66;
+  border-radius: 10px;
+}
+
+.send-message input:hover, .send-message input:focus {
+  appearance: none;
+  outline: none;
+  background: var(--field-hover-focus-color);
+}
+
