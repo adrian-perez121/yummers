@@ -29,9 +29,12 @@ reaches the limit. School is going to be starting soon and there is still so muc
   love to have the website up and running. At least for a while. The main roadblock holding me
   back is cost. Render databases are free for a while before they delete themselves and I would also need
   a storage provider for images. However, self-hosting the server seems like a more better option...who knows.
-+ ### Messaging
++ ### Messaging (Check off!!!)
   I would like to get messages working at some point. Before I started I did a bunch of readings on websockets
   and I would hate for that knowledge to go to waste.
+  + I just implemented with the help of youtube tutorials. My original approach would add message with the same formatting for
+    both users which was a problem. Anyways I learned a bit more turbo and mutation observers. While I would like to add more, I feel like I hvae to move on...
+    especially since a club I am trying to join wants me to know react.
 + ### Mailer
   This is one of those features that I haven't implemented yet because I have been busy with other features. Also, I have
   found that trying to deploy a mailer with no budget is a major pain.
