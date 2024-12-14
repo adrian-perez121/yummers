@@ -6,6 +6,22 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <style>
+      <%= ".msg-#{current_user&.id}" %> {
+        --_p: 100% !important;
+        border-bottom-right-radius: 0 0 !important;
+        border-bottom-left-radius: 10px 10px !important;
+        place-self: end;
+        background-color: #ba8d66 !important;
+        padding: 10px
+      }
+      <%= ".cont-#{current_user&.id}" %> {
+
+        display: flex;
+        justify-content: flex-end
+      }
+    </style>
+
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>

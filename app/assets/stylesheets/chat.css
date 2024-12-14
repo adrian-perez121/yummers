@@ -6,7 +6,7 @@
   flex-direction: column;
 }
 
-.messages {
+#messages {
   box-sizing: border-box;
   height: 70vh;
 
@@ -15,8 +15,8 @@
 
 
   margin: 0;
-  display: flex;
-  flex-direction: column;
+  /*display: flex;*/
+  /*flex-direction: column;*/
   gap: 20px;
   font-size: 20px;
 
@@ -26,25 +26,25 @@
 
 /* Thank you to the CSS user who I got this from */
 .message {
-  --r: 2em;  /* the radius */
-  --t: 0.5em; /* the size of the tail */
-  max-width: 300px;
-  padding: 1em;
-  border-inline: var(--t) solid #0000;
-  border-radius: calc(var(--r) + var(--t))/var(--r);
-  background: #ba8d66;
-  color: #fff;
-}
-.left {
+  width: fit-content;
+  max-width: 40%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  background-color: rgba(186, 141, 102, 0.66);
+  padding: 10px;
+
   --_p: 0;
   border-bottom-left-radius: 0 0;
-  place-self: start;
+  /*--r: 2em;  !* the radius *!*/
+  /*--t: 0.5em; !* the size of the tail *!*/
+  /*max-width: 300px;*/
+  /*padding: 1em;*/
+  /*border-inline: var(--t) solid #0000;*/
+  /*border-radius: calc(var(--r) + var(--t))/var(--r);*/
+  /*background: #ba8d66;*/
+  /*color: #fff;*/
 }
-.right {
-  --_p: 100%;
-  border-bottom-right-radius: 0 0;
-  place-self: end;
-}
+
 
 .send-message {
   place-self: center;

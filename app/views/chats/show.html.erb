@@ -2,11 +2,10 @@
 
 
 <div class="messages-view">
-  <div class="messages" data-controller="scroll chat" data-turbo="false" data-chat-id="<%=@chat.id%>">
+  <%= turbo_stream_from @chat %>
+  <div id="messages" data-controller="scroll">
     <% @chat.messages.each do |msg| %>
-      <div class="message <%= msg.sender == @current_user ? "right" : "left" %>">
-        <%= msg.message %>
-      </div>
+    <%= render msg %>
     <% end %>
   </div>
 
