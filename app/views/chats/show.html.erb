@@ -9,9 +9,10 @@
     <% end %>
   </div>
 
-  <%= form_with model: Message.new , class: "send-message" do |f| %>
+  <%= form_with model: Message.new , class: "send-message",
+                data: { controller:"clear-form", action:"turbo:submit-end->clear-form#clear"} do |f| %>
     <%= f.hidden_field :chat_id, value: @chat.id %>
     <%= f.hidden_field :sender_id, value: @current_user.id %>
-    <%= f.text_field :message, placeholder: "Send a new message" %>
+    <%= f.text_field :message, placeholder: "Send a new message", data: {clear_form_target:"field"} %>
   <% end %>
 </div>

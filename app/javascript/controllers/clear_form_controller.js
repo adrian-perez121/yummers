@@ -8,7 +8,6 @@ export default class extends Controller {
 
   clear() {
     this.fieldTargets.forEach( (field) => {
-      console.log(field)
       field.value = ''
     })
   }
